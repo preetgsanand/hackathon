@@ -1,0 +1,136 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JobDetailFragments.JobDetailFragment">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_margin="5dp"
+        android:elevation="3dp"
+        android:id="@+id/collegeImgCard"
+        android:background="@color/colorPrimaryDark">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/placeholder"
+            android:scaleType="centerCrop"/>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/collegeImgCard"
+        android:id="@+id/collegeDetailCard"
+        android:layout_margin="5dp">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textSize="@dimen/title"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:id="@+id/descriptionTitle"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/subTitle"
+                android:layout_below="@+id/descriptionTitle"
+                android:id="@+id/description"
+                android:padding="10dp"
+                android:text="This container will hold the details of the college which will be fetched from the server."/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/description"
+                    android:text="Name : "
+                    android:textStyle="bold"
+                    android:id="@+id/nameTitle"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/name"
+                    android:layout_toEndOf="@+id/nameTitle"
+                    android:layout_below="@+id/description"
+                    android:text="College Name"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/nameTitle"
+                    android:text="Deadline : "
+                    android:textStyle="bold"
+                    android:id="@+id/cityTitle"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deadline"
+                    android:layout_toEndOf="@+id/cityTitle"
+                    android:layout_below="@+id/name"
+                    android:text="City Name"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/cityTitle"
+                    android:text="Added : "
+                    android:textStyle="bold"
+                    android:id="@+id/addressTitle"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/added"
+                    android:layout_toEndOf="@+id/addressTitle"
+                    android:layout_below="@+id/cityTitle"
+                    android:text="Address Details"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/added"
+                    android:text="Assigned To : "
+                    android:textStyle="bold"
+                    android:id="@+id/assignedToTitle"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/assignedTo"
+                    android:layout_toEndOf="@+id/assignedToTitle"
+                    android:layout_below="@+id/added"
+                    android:text="Assigned To"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/assignedToTitle"
+                    android:text=" Request Submission"
+                    android:layout_margin="10dp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/submitrequest"
+                    android:background="@drawable/transparent_button"/>
+            </RelativeLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

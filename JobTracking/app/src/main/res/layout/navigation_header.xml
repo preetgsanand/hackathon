@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/person"
+        app:civ_border_width="2dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        app:civ_border_color="#FF000000"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/name"
+        android:layout_below="@+id/profile_image"
+        android:layout_marginTop="10dp"
+        android:text="Preet G S Anand"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:background="@drawable/navigation_edittext"/>
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/emailIcon"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:text="&#9743;"
+        android:textStyle="bold"
+        android:id="@+id/phoneIcon"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+918587830103"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:background="@drawable/navigation_edittext"
+        android:layout_toEndOf="@+id/phoneIcon"
+        android:id="@+id/phone"
+        android:layout_alignBaseline="@id/phoneIcon"/>
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:text="&#128231;"
+        android:textStyle="bold"
+        android:id="@+id/emailIcon"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="preetanand90@gmail.com"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:id="@+id/email"
+        android:background="@drawable/navigation_edittext"
+        android:layout_toEndOf="@+id/emailIcon"
+        android:layout_alignBaseline="@id/emailIcon"/>
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/phoneIcon"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:text="&#127866;"
+        android:textStyle="bold"
+        android:id="@+id/dobIcon"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="27 Jan, 2017"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:id="@+id/dob"
+        android:background="@drawable/navigation_edittext"
+        android:layout_toEndOf="@+id/dobIcon"
+        android:layout_alignBaseline="@id/dobIcon"/>
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/dobIcon"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:text="&#9998;"
+        android:textStyle="bold"
+        android:id="@+id/deptIcon"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Department"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:id="@+id/dept"
+        android:background="@drawable/navigation_edittext"
+        android:layout_toEndOf="@+id/deptIcon"
+        android:layout_alignBaseline="@id/deptIcon"/>
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/deptIcon"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:text="&#9733;"
+        android:textStyle="bold"
+        android:id="@+id/effeciencyIcon"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Effeciency"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:id="@+id/effeciency"
+        android:background="@drawable/navigation_edittext"
+        android:layout_toEndOf="@+id/effeciencyIcon"
+        android:layout_alignBaseline="@id/effeciencyIcon"/>
+
+</RelativeLayout>

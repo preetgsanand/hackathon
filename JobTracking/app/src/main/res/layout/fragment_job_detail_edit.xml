@@ -1,0 +1,108 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InitializationFragments.IntroDetailInputFragment"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_above="@+id/name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:textColor="#ffffff"
+        android:text="Job Details"
+        android:id="@+id/title"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@+id/description"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/job_edit_edittext"
+        android:padding="10dp"
+        android:hint="Name"
+        android:textColorHint="#B0BEC5"
+        android:textColor="#37474F"
+        android:id="@+id/name" />
+    <EditText
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_above="@+id/dateLinear"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/job_edit_edittext"
+        android:padding="10dp"
+        android:hint="Description"
+        android:textColor="#37474F"
+        android:textColorHint="#B0BEC5"
+        android:id="@+id/description" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/dateLinear">
+
+        <EditText
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/job_edit_edittext"
+            android:padding="10dp"
+            android:textColor="#37474F"
+            android:textColorHint="#B0BEC5"
+            android:hint="Deadline"
+            android:id="@+id/deadline"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:text="SELECT"
+            android:textColor="#ffffff"
+            android:background="@drawable/transparent_button"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/selectDeadline"/>
+    </LinearLayout>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/assignedToSpinner"
+        android:layout_below="@+id/dateLinear"
+        android:background="@drawable/job_edit_edittext"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/statusSpinner"
+        android:layout_below="@+id/assignedToSpinner"
+        android:background="@drawable/job_edit_edittext"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/submitRequestSpinner"
+        android:layout_below="@+id/statusSpinner"
+        android:background="@drawable/job_edit_edittext"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"/>
+</RelativeLayout>
