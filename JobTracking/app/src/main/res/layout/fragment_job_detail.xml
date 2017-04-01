@@ -25,10 +25,10 @@
         android:layout_margin="5dp">
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
 >
 
             <TextView
@@ -110,19 +110,18 @@
                     android:textStyle="bold"
                     android:id="@+id/assignedToTitle"
                     android:padding="10dp"/>
-                <TextView
+                <ListView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:id="@+id/assignedTo"
                     android:layout_toEndOf="@+id/assignedToTitle"
                     android:layout_below="@+id/added"
                     android:text="Assigned To"
-                    android:paddingTop="10dp"
                     android:paddingBottom="10dp"/>
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/assignedToTitle"
+                    android:layout_below="@id/assignedTo"
                     android:text=" Request Submission"
                     android:layout_margin="10dp"
                     android:textColor="#ffffff"

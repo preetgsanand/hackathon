@@ -1,5 +1,6 @@
 package vince.jobtracking.JobDetailFragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -10,15 +11,22 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import vince.jobtracking.Database.Job;
 import vince.jobtracking.Database.User;
 import vince.jobtracking.JobDetailActivity;
 import vince.jobtracking.MainActivity;
 import vince.jobtracking.R;
+import vince.jobtracking.UserDetailActivity;
 import vince.jobtracking.Utils.Utils;
 
 
@@ -77,7 +85,7 @@ public class JobDetailFragment extends Fragment implements View.OnClickListener{
         TextView description = (TextView) view.findViewById(R.id.description);
         TextView deadline = (TextView) view.findViewById(R.id.deadline);
         TextView added = (TextView) view.findViewById(R.id.added);
-        TextView assignedTo = (TextView) view.findViewById(R.id.assignedTo);
+        ListView assignedTo = (ListView) view.findViewById(R.id.assignedTo);
         submitrequest = (Button) view.findViewById(R.id.submitrequest);
 
         submitrequest.setOnClickListener(this);
@@ -88,7 +96,29 @@ public class JobDetailFragment extends Fragment implements View.OnClickListener{
         description.setText(job.getDescription());
         deadline.setText(Utils.LongToDate(job.getDeadline()));
         added.setText(Utils.LongToDate(job.getAdded()));
-        assignedTo.setText(User.find(User.class,"webid=?",""+job.getUserId()).get(0).getName());
+
+        List<String> users = new ArrayList<>();
+        final List<Long> ids = new ArrayList<>();
+        String[] userId = job.getUserId().split(" ");
+        for(int i = 0 ; i < userId.length ; i++) {
+            User user = User.find(User.class,"webid=?",userId[i]).get(0);
+            ids.add(user.getId());
+            users.add(user.getName());
+        }
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_list_item_1,
+                users);
+        assignedTo.setAdapter(arrayAdapter);
+
+        assignedTo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getContext(), UserDetailActivity.class);
+                intent.putExtra("id",ids.get(position));
+                startActivity(intent);
+            }
+        });
 
         if(job.getStatus() == 1 || job.getStatus() == 2) {
             ViewGroup.LayoutParams submitlp = (ViewGroup.LayoutParams)submitrequest.getLayoutParams();

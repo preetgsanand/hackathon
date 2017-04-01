@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         Utils.activity = 0;
         Utils.MainAdminActivity = 0;
         setContentView(R.layout.activity_main);
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setMessage("Syncing");
         mActionBar = getSupportActionBar();
         mActionBar.setHomeAsUpIndicator(R.drawable.navigation);
 

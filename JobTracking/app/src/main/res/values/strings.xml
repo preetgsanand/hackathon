@@ -16,6 +16,8 @@
     <string name="user_list">http://hackathonjob.herokuapp.com/user/list/?format=json</string>
     <string name="job_list">http://hackathonjob.herokuapp.com/job/list/?format=json</string>
     <string name="user_put">http://hackathonjob.herokuapp.com/user/</string>
+    <string name="part_search">http://hackathonjob.herokuapp.com/part/search/?id=</string>
+    <string name="part_list">http://hackathonjob.herokuapp.com/part/list/?format=json</string>
 
 
     <string-array name="departments">
@@ -71,6 +73,10 @@
         <item>Add User</item>
     </string-array>
     <string name="title_activity_add">AddActivity</string>
+
+    <string-array name="admin_job_display_options">
+        <item></item>
+    </string-array>
 
 
 </resources>

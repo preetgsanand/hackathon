@@ -90,6 +90,8 @@ public class API {
                 break;
             case 13:refreshJobUser();
                 break;
+            case 14:partsearch();
+                break;
         }
     }
 
@@ -626,6 +628,74 @@ public class API {
         }
     }
 
+    //----------------------------------------User Check - 14------------------------------------------
+
+    public void partsearch() {
+        handler = new Handler();
+        new Thread() {
+            public void run() {
+                JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET,
+                        context.getResources().getString(R.string.part_list),
+                        null,
+                        new Response.Listener<JSONArray>() {
+                            @Override
+                            public void onResponse(final JSONArray response) {
+
+                                try {
+                                    if (response == null) {
+                                        handler.post(new Runnable() {
+                                            public void run() {
+                                                postResult(-1);
+                                            }
+                                        });
+                                    } else {
+                                        handler.post(new Runnable() {
+                                            public void run() {
+                                                try {
+                                                    Log.e("JSON : ",response.toString());
+                                                    partListParseJson(response);
+
+                                                } catch (Exception e) {
+
+                                                }
+                                            }
+                                        });
+                                    }
+                                } catch (Exception e) {
+                                }
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.e("Error Json : ",error.toString());
+                                postResult(-1);
+                            }
+                        }
+                );
+                Volley.newRequestQueue(context).add(jsonArrayRequest);
+            }
+        }.start();
+    }
+
+    private void partListParseJson(JSONArray response) {
+        if(response.length() == 0) {
+            postResult(0);
+        }
+        else {
+            try {
+                User user = Utils.JsonToUser(response.getJSONObject(0));
+                if(user != null) {
+                    user.save();
+                    postResult(1);
+                }
+            }
+            catch (Exception e) {
+                postResult(-1);
+                Log.e("User Check Json",e.toString());
+            }
+        }
+    }
 
     private void postResult(int result) {
         switch (Utils.activity) {

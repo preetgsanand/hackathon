@@ -46,7 +46,6 @@ public class Utils {
         return 0;
     }
 
-
     public static String LongToDate(long mills) {
         Date date = new Date(mills);
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
@@ -108,7 +107,19 @@ public class Utils {
                 job.setAdded(Utils.DateToLong(jsonObject.getString("added")));
                 job.setDeadline(Utils.DateToLong(jsonObject.getString("deadline")));
                 job.setDescription(jsonObject.getString("description"));
-                job.setUserId(jsonObject.getLong("user"));
+                JSONArray user = jsonObject.getJSONArray("user");
+                String userId = "";
+                for(int j = 0 ; j < user.length() ; j++) {
+                    int userInt = user.getInt(j);
+                    if(j == user.length()-1) {
+                        userId = userId+userInt;
+                    }
+                    else {
+                        userId = userId+userInt+" ";
+                    }
+                }
+                job.setUserId(userId);
+                Log.e("userid",job.getUserId());
                 job.setStatus(jsonObject.getInt("status"));
                 job.setSubmitRequest(jsonObject.getInt("submitrequest"));
                 jobs.add(job);
@@ -126,7 +137,18 @@ public class Utils {
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("name",job.getName());
-            jsonObject.put("user",job.getUserId()   );
+            JSONArray user = jsonObject.getJSONArray("user");
+            String userId = "";
+            for(int j = 0 ; j < user.length() ; j++) {
+                int userInt = user.getInt(j);
+                if(j == user.length()-1) {
+                    userId = userId+userInt;
+                }
+                else {
+                    userId = userId+userInt+" ";
+                }
+            }
+            job.setUserId(userId);
             jsonObject.put("description",job.getDescription());
             jsonObject.put("deadline",Utils.LongToDjangoDate(job.getDeadline())+"T00:00:00Z");
             jsonObject.put("added",Utils.LongToDjangoDate(job.getAdded())+"T00:00:00Z");
@@ -147,7 +169,13 @@ public class Utils {
                 job.setAdded(Utils.DateToLong(jsonObject.getString("added")));
                 job.setDeadline(Utils.DateToLong(jsonObject.getString("deadline")));
                 job.setDescription(jsonObject.getString("description"));
-                job.setUserId(jsonObject.getLong("user"));
+                JSONArray user = jsonObject.getJSONArray("user");
+                String userId = "";
+                for(int j = 0 ; j < user.length() ; j++) {
+                    userId.concat(user.getInt(j)+"");
+                }
+                job.setUserId(userId);
+                Log.e("userid",job.getUserId()+"");
                 job.setStatus(jsonObject.getInt("status"));
                 job.setSubmitRequest(jsonObject.getInt("submitrequest"));
             return job;

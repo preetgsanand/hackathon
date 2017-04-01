@@ -84,7 +84,7 @@ public class JobDetailEditFragment extends Fragment implements View.OnClickListe
         job.setDeadline(Utils.DateToLong(deadline.getText().toString()));
         String id = assignedTo.getSelectedItem().toString().split("-")[0];
         long longId = Long.valueOf(id);
-        job.setUserId(longId);
+        //job.setUserId(longId);
         job.setSubmitRequest(submitRequest.getSelectedItemPosition()+1);
         job.setStatus(status.getSelectedItemPosition()+1);
 
@@ -120,9 +120,9 @@ public class JobDetailEditFragment extends Fragment implements View.OnClickListe
         for(int i = 0 ; i < users.size() ; i++) {
             userNames.add(users.get(i).getWebid()+"-"+users.get(i).getName());
             if(id != 0) {
-                if(users.get(i).getWebid() == job.getUserId()) {
+                /*if(users.get(i).getWebid() == job.getUserId()) {
                     spinnerPos = i;
-                }
+                }*/
             }
         }
         ArrayAdapter<String> assignedAdapter = new ArrayAdapter<String>(getContext(),

@@ -259,6 +259,27 @@ public class AdminActivity extends AppCompatActivity implements SearchView.OnQue
 
     private void setDisplayOptions() {
         int pagerPos = pager.getCurrentItem();
+        final Dialog alertDialog = new Dialog(AdminActivity.this);
+        final LayoutInflater inflater = getLayoutInflater();
+        View convertView = (View) inflater.inflate(R.layout.display_options_listview, null);
+        alertDialog.setContentView(convertView);
+        ListView lv = (ListView) convertView.findViewById(R.id.displayOptionsList);
+        switch (pagerPos) {
+            case 0:
+                ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),
+                        android.R.layout.simple_list_item_1,
+                        getResources().getStringArray(R.array.departments));
+
+                lv.setAdapter(adapter);
+                break;
+            case 1:
+                ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),
+                        android.R.layout.simple_list_item_1,
+                        getResources().getStringArray(R.array.departments));
+
+                lv.setAdapter(adapter1);
+                break;
+        }
 
     }
 

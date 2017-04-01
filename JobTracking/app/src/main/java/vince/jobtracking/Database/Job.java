@@ -9,7 +9,7 @@ import com.orm.SugarRecord;
 public class Job extends SugarRecord {
 
     private long webid;
-    private long userId;
+    private String userId;
     private String name;
     private long deadline;
     private String description;
@@ -38,11 +38,11 @@ public class Job extends SugarRecord {
         this.submitRequest = submitRequest;
     }
 
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
